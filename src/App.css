@@ -1,0 +1,19 @@
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100vw;
+  margin-top: -200px;
+}
+
+.text-box,
+img {
+  width: 500px;
+  height: 400px;
+  overflow: auto;
+  color: blue;
+}
+
+.m-l {
+  margin-left: 40px;
+}

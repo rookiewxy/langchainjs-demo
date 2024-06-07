@@ -1,14 +1,14 @@
 import { Ollama } from "@langchain/community/llms/ollama";
 import { HuggingFaceInference } from "@langchain/community/llms/hf";
 
-// 配置 Ollama
-export async function generate(params: string) {
+
+export async function generate(data: string) {
   const ollama = new Ollama({
     baseUrl: "http://localhost:11434",
-    model: "llama2-chinese:latest",
+    model: "llama2-chinese:13b",
   });
 
-  const stream = await ollama.stream(params);
+  const stream = await ollama.stream(data);
   
   const chunks = [];
   for await (const chunk of stream) {
@@ -21,10 +21,16 @@ export async function generate(params: string) {
 
 
 export const generateImage = async (data: string) => {
-  const model = new HuggingFaceInference({
-      model: "gpt2",
-      apiKey: "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",
+    const { HfInference } = await HuggingFaceInference.imports();
+  const hf = new HfInference('apikey');
+
+  const file = await hf.textToImage({
+    model: 'runwayml/stable-diffusion-v1-5',
+    inputs: data
   });
-  const res = await model.invoke("1 + 1 =");
-  console.log({ res });
+
+  const blob = new Blob([file], { type: file.type });
+  const url = URL.createObjectURL(blob);
+
+  return url
 };

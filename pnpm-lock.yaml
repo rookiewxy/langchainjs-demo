@@ -8,24 +8,21 @@ importers:
 
   .:
     dependencies:
-      '@huggingface/inference':
-        specifier: ^2.7.0
-        version: 2.7.0
       '@langchain/community':
         specifier: ^0.2.5
-        version: 0.2.5(@huggingface/inference@2.7.0)(ignore@5.3.1)(openai@4.48.1)
-      '@langchain/core':
-        specifier: ^0.2.5
-        version: 0.2.5(langchain@0.2.4(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
+        version: 0.2.5(@huggingface/inference@2.7.0)(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1)
       add:
         specifier: ^2.0.6
         version: 2.0.6
       antd:
         specifier: ^5.18.0
         version: 5.18.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      axios:
+        specifier: ^1.7.2
+        version: 1.7.2
       langchain:
         specifier: ^0.2.4
-        version: 0.2.4(ignore@5.3.1)(openai@4.48.1)
+        version: 0.2.4(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1)
       pnpm:
         specifier: ^9.1.4
         version: 9.1.4
@@ -36,6 +33,9 @@ importers:
         specifier: ^18.2.0
         version: 18.3.1(react@18.3.1)
     devDependencies:
+      '@types/node':
+        specifier: ^20.14.2
+        version: 20.14.2
       '@types/react':
         specifier: ^18.2.66
         version: 18.3.3
@@ -50,7 +50,7 @@ importers:
         version: 7.12.0(eslint@8.57.0)(typescript@5.4.5)
       '@vitejs/plugin-react-swc':
         specifier: ^3.5.0
-        version: 3.7.0(vite@5.2.12(@types/node@18.19.33))
+        version: 3.7.0(vite@5.2.12(@types/node@20.14.2))
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
@@ -65,7 +65,7 @@ importers:
         version: 5.4.5
       vite:
         specifier: ^5.2.0
-        version: 5.2.12(@types/node@18.19.33)
+        version: 5.2.12(@types/node@20.14.2)
 
 packages:
 
@@ -900,6 +900,9 @@ packages:
   '@types/node@18.19.33':
     resolution: {integrity: sha512-NR9+KrpSajr2qBVp/Yt5TU/rp+b5Mayi3+OlMlcg2cVCfRmcG5PWZ7S4+MG9PZ5gWBoc9Pd0BKSRViuBCRPu0A==}
 
+  '@types/node@20.14.2':
+    resolution: {integrity: sha512-xyu6WAMVwv6AKFLB+e/7ySZVr/0zLCzOa7rSpq6jNwpqOrUbcACDWC+53d4n2QHOnDou0fbIsg8wZu/sxrnI4Q==}
+
   '@types/prop-types@15.7.12':
     resolution: {integrity: sha512-5zvhXYtRNRluoE/jAp4GVsSduVUzNWKkOZrCDBWYtE7biZywwdC2AcEzg+cSMLFRfVgeAFqpfNabiPjxFddV1Q==}
 
@@ -1035,6 +1038,9 @@ packages:
 
   asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
+
+  axios@1.7.2:
+    resolution: {integrity: sha512-2A8QhOMrbomlDuiLeK9XibIBzuHeRcqqNOHp0Cyp5EoJ1IFDh+XZH3A6BkXtv0K4gFGCI0Y4BM7B1wOEi0Rmgw==}
 
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
@@ -1237,6 +1243,15 @@ packages:
 
   flatted@3.3.1:
     resolution: {integrity: sha512-X8cqMLLie7KsNUDSdzeN8FYK9rEt4Dt67OsG/DNGnYTSDBG4uFAJFBnUeiV+zCVAvwFy56IjM9sH51jVaEhNxw==}
+
+  follow-redirects@1.15.6:
+    resolution: {integrity: sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA==}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
 
   form-data-encoder@1.7.2:
     resolution: {integrity: sha512-qfqtYan3rxrnCk1VYaA4H+Ms9xdpPqvLZa6xmMgFvhO32x7/3J/ExcTd6qpxM0vH2GdMI+poehyBZvqfMTto8A==}
@@ -1849,6 +1864,9 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
+  proxy-from-env@1.1.0:
+    resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
+
   punycode@2.3.1:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
     engines: {node: '>=6'}
@@ -2438,8 +2456,10 @@ snapshots:
   '@huggingface/inference@2.7.0':
     dependencies:
       '@huggingface/tasks': 0.10.9
+    optional: true
 
-  '@huggingface/tasks@0.10.9': {}
+  '@huggingface/tasks@0.10.9':
+    optional: true
 
   '@humanwhocodes/config-array@0.11.14':
     dependencies:
@@ -2453,16 +2473,16 @@ snapshots:
 
   '@humanwhocodes/object-schema@2.0.3': {}
 
-  '@langchain/community@0.2.5(@huggingface/inference@2.7.0)(ignore@5.3.1)(openai@4.48.1)':
+  '@langchain/community@0.2.5(@huggingface/inference@2.7.0)(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1)':
     dependencies:
-      '@langchain/core': 0.2.5(langchain@0.2.3(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
-      '@langchain/openai': 0.1.1(langchain@0.2.3(ignore@5.3.1)(openai@4.48.1))
+      '@langchain/core': 0.2.5(langchain@0.2.3(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
+      '@langchain/openai': 0.1.1(langchain@0.2.3(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))
       binary-extensions: 2.3.0
       expr-eval: 2.0.2
       flat: 5.0.2
       js-yaml: 4.1.0
-      langchain: 0.2.3(ignore@5.3.1)(openai@4.48.1)
-      langsmith: 0.1.30(@langchain/core@0.2.5(langchain@0.2.3(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1))(langchain@0.2.3(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
+      langchain: 0.2.3(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1)
+      langsmith: 0.1.30(@langchain/core@0.2.5(langchain@0.2.3(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1))(langchain@0.2.3(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
       uuid: 9.0.1
       zod: 3.23.8
       zod-to-json-schema: 3.23.0(zod@3.23.8)
@@ -2479,13 +2499,13 @@ snapshots:
       - peggy
       - pyodide
 
-  '@langchain/core@0.2.5(langchain@0.2.3(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)':
+  '@langchain/core@0.2.5(langchain@0.2.3(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)':
     dependencies:
       ansi-styles: 5.2.0
       camelcase: 6.3.0
       decamelize: 1.2.0
       js-tiktoken: 1.0.12
-      langsmith: 0.1.30(@langchain/core@0.2.5(langchain@0.2.3(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1))(langchain@0.2.3(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
+      langsmith: 0.1.30(@langchain/core@0.2.5(langchain@0.2.3(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1))(langchain@0.2.3(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
       ml-distance: 4.0.1
       mustache: 4.2.0
       p-queue: 6.6.2
@@ -2497,13 +2517,13 @@ snapshots:
       - langchain
       - openai
 
-  '@langchain/core@0.2.5(langchain@0.2.4(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)':
+  '@langchain/core@0.2.5(langchain@0.2.4(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)':
     dependencies:
       ansi-styles: 5.2.0
       camelcase: 6.3.0
       decamelize: 1.2.0
       js-tiktoken: 1.0.12
-      langsmith: 0.1.30(@langchain/core@0.2.5(langchain@0.2.4(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1))(langchain@0.2.4(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
+      langsmith: 0.1.30(@langchain/core@0.2.5(langchain@0.2.4(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1))(langchain@0.2.4(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
       ml-distance: 4.0.1
       mustache: 4.2.0
       p-queue: 6.6.2
@@ -2515,9 +2535,9 @@ snapshots:
       - langchain
       - openai
 
-  '@langchain/openai@0.0.34(langchain@0.2.3(ignore@5.3.1)(openai@4.48.1))':
+  '@langchain/openai@0.0.34(langchain@0.2.3(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))':
     dependencies:
-      '@langchain/core': 0.2.5(langchain@0.2.3(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
+      '@langchain/core': 0.2.5(langchain@0.2.3(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
       js-tiktoken: 1.0.12
       openai: 4.48.1
       zod: 3.23.8
@@ -2526,9 +2546,9 @@ snapshots:
       - encoding
       - langchain
 
-  '@langchain/openai@0.1.1(langchain@0.2.3(ignore@5.3.1)(openai@4.48.1))':
+  '@langchain/openai@0.1.1(langchain@0.2.3(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))':
     dependencies:
-      '@langchain/core': 0.2.5(langchain@0.2.3(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
+      '@langchain/core': 0.2.5(langchain@0.2.3(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
       js-tiktoken: 1.0.12
       openai: 4.48.1
       zod: 3.23.8
@@ -2537,9 +2557,9 @@ snapshots:
       - encoding
       - langchain
 
-  '@langchain/openai@0.1.1(langchain@0.2.4(ignore@5.3.1)(openai@4.48.1))':
+  '@langchain/openai@0.1.1(langchain@0.2.4(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))':
     dependencies:
-      '@langchain/core': 0.2.5(langchain@0.2.4(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
+      '@langchain/core': 0.2.5(langchain@0.2.4(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
       js-tiktoken: 1.0.12
       openai: 4.48.1
       zod: 3.23.8
@@ -2548,17 +2568,17 @@ snapshots:
       - encoding
       - langchain
 
-  '@langchain/textsplitters@0.0.2(langchain@0.2.3(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)':
+  '@langchain/textsplitters@0.0.2(langchain@0.2.3(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)':
     dependencies:
-      '@langchain/core': 0.2.5(langchain@0.2.3(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
+      '@langchain/core': 0.2.5(langchain@0.2.3(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
       js-tiktoken: 1.0.12
     transitivePeerDependencies:
       - langchain
       - openai
 
-  '@langchain/textsplitters@0.0.2(langchain@0.2.4(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)':
+  '@langchain/textsplitters@0.0.2(langchain@0.2.4(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)':
     dependencies:
-      '@langchain/core': 0.2.5(langchain@0.2.4(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
+      '@langchain/core': 0.2.5(langchain@0.2.4(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
       js-tiktoken: 1.0.12
     transitivePeerDependencies:
       - langchain
@@ -2741,10 +2761,14 @@ snapshots:
 
   '@types/node-fetch@2.6.11':
     dependencies:
-      '@types/node': 18.19.33
+      '@types/node': 20.14.2
       form-data: 4.0.0
 
   '@types/node@18.19.33':
+    dependencies:
+      undici-types: 5.26.5
+
+  '@types/node@20.14.2':
     dependencies:
       undici-types: 5.26.5
 
@@ -2846,10 +2870,10 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vitejs/plugin-react-swc@3.7.0(vite@5.2.12(@types/node@18.19.33))':
+  '@vitejs/plugin-react-swc@3.7.0(vite@5.2.12(@types/node@20.14.2))':
     dependencies:
       '@swc/core': 1.5.24
-      vite: 5.2.12(@types/node@18.19.33)
+      vite: 5.2.12(@types/node@20.14.2)
     transitivePeerDependencies:
       - '@swc/helpers'
 
@@ -2948,6 +2972,14 @@ snapshots:
   array-union@2.1.0: {}
 
   asynckit@0.4.0: {}
+
+  axios@1.7.2:
+    dependencies:
+      follow-redirects: 1.15.6
+      form-data: 4.0.0
+      proxy-from-env: 1.1.0
+    transitivePeerDependencies:
+      - debug
 
   balanced-match@1.0.2: {}
 
@@ -3180,6 +3212,8 @@ snapshots:
 
   flatted@3.3.1: {}
 
+  follow-redirects@1.15.6: {}
+
   form-data-encoder@1.7.2: {}
 
   form-data@4.0.0:
@@ -3292,17 +3326,17 @@ snapshots:
     dependencies:
       json-buffer: 3.0.1
 
-  langchain@0.2.3(ignore@5.3.1)(openai@4.48.1):
+  langchain@0.2.3(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1):
     dependencies:
-      '@langchain/core': 0.2.5(langchain@0.2.3(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
-      '@langchain/openai': 0.0.34(langchain@0.2.3(ignore@5.3.1)(openai@4.48.1))
-      '@langchain/textsplitters': 0.0.2(langchain@0.2.3(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
+      '@langchain/core': 0.2.5(langchain@0.2.3(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
+      '@langchain/openai': 0.0.34(langchain@0.2.3(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))
+      '@langchain/textsplitters': 0.0.2(langchain@0.2.3(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
       binary-extensions: 2.3.0
       js-tiktoken: 1.0.12
       js-yaml: 4.1.0
       jsonpointer: 5.0.1
       langchainhub: 0.0.11
-      langsmith: 0.1.30(@langchain/core@0.2.5(langchain@0.2.3(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1))(langchain@0.2.3(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
+      langsmith: 0.1.30(@langchain/core@0.2.5(langchain@0.2.3(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1))(langchain@0.2.3(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
       ml-distance: 4.0.1
       openapi-types: 12.1.3
       p-retry: 4.6.2
@@ -3311,22 +3345,23 @@ snapshots:
       zod: 3.23.8
       zod-to-json-schema: 3.23.0(zod@3.23.8)
     optionalDependencies:
+      axios: 1.7.2
       ignore: 5.3.1
     transitivePeerDependencies:
       - encoding
       - openai
 
-  langchain@0.2.4(ignore@5.3.1)(openai@4.48.1):
+  langchain@0.2.4(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1):
     dependencies:
-      '@langchain/core': 0.2.5(langchain@0.2.4(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
-      '@langchain/openai': 0.1.1(langchain@0.2.4(ignore@5.3.1)(openai@4.48.1))
-      '@langchain/textsplitters': 0.0.2(langchain@0.2.4(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
+      '@langchain/core': 0.2.5(langchain@0.2.4(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
+      '@langchain/openai': 0.1.1(langchain@0.2.4(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))
+      '@langchain/textsplitters': 0.0.2(langchain@0.2.4(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
       binary-extensions: 2.3.0
       js-tiktoken: 1.0.12
       js-yaml: 4.1.0
       jsonpointer: 5.0.1
       langchainhub: 0.0.11
-      langsmith: 0.1.30(@langchain/core@0.2.5(langchain@0.2.4(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1))(langchain@0.2.4(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
+      langsmith: 0.1.30(@langchain/core@0.2.5(langchain@0.2.4(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1))(langchain@0.2.4(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
       ml-distance: 4.0.1
       openapi-types: 12.1.3
       p-retry: 4.6.2
@@ -3335,6 +3370,7 @@ snapshots:
       zod: 3.23.8
       zod-to-json-schema: 3.23.0(zod@3.23.8)
     optionalDependencies:
+      axios: 1.7.2
       ignore: 5.3.1
     transitivePeerDependencies:
       - encoding
@@ -3342,7 +3378,7 @@ snapshots:
 
   langchainhub@0.0.11: {}
 
-  langsmith@0.1.30(@langchain/core@0.2.5(langchain@0.2.3(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1))(langchain@0.2.3(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1):
+  langsmith@0.1.30(@langchain/core@0.2.5(langchain@0.2.3(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1))(langchain@0.2.3(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1):
     dependencies:
       '@types/uuid': 9.0.8
       commander: 10.0.1
@@ -3350,11 +3386,11 @@ snapshots:
       p-retry: 4.6.2
       uuid: 9.0.1
     optionalDependencies:
-      '@langchain/core': 0.2.5(langchain@0.2.3(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
-      langchain: 0.2.3(ignore@5.3.1)(openai@4.48.1)
+      '@langchain/core': 0.2.5(langchain@0.2.3(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
+      langchain: 0.2.3(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1)
       openai: 4.48.1
 
-  langsmith@0.1.30(@langchain/core@0.2.5(langchain@0.2.4(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1))(langchain@0.2.4(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1):
+  langsmith@0.1.30(@langchain/core@0.2.5(langchain@0.2.4(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1))(langchain@0.2.4(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1):
     dependencies:
       '@types/uuid': 9.0.8
       commander: 10.0.1
@@ -3362,8 +3398,8 @@ snapshots:
       p-retry: 4.6.2
       uuid: 9.0.1
     optionalDependencies:
-      '@langchain/core': 0.2.5(langchain@0.2.4(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
-      langchain: 0.2.4(ignore@5.3.1)(openai@4.48.1)
+      '@langchain/core': 0.2.5(langchain@0.2.4(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1))(openai@4.48.1)
+      langchain: 0.2.4(axios@1.7.2)(ignore@5.3.1)(openai@4.48.1)
       openai: 4.48.1
 
   levn@0.4.1:
@@ -3516,6 +3552,8 @@ snapshots:
       source-map-js: 1.2.0
 
   prelude-ls@1.2.1: {}
+
+  proxy-from-env@1.1.0: {}
 
   punycode@2.3.1: {}
 
@@ -3962,13 +4000,13 @@ snapshots:
 
   uuid@9.0.1: {}
 
-  vite@5.2.12(@types/node@18.19.33):
+  vite@5.2.12(@types/node@20.14.2):
     dependencies:
       esbuild: 0.20.2
       postcss: 8.4.38
       rollup: 4.18.0
     optionalDependencies:
-      '@types/node': 18.19.33
+      '@types/node': 20.14.2
       fsevents: 2.3.3
 
   web-streams-polyfill@3.3.3: {}

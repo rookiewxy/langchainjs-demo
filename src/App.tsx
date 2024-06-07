@@ -1,6 +1,6 @@
 import { Button, Form, Input } from 'antd'
 import './App.css'
-import { generate, generateImg } from './utils/langchain';
+import { generate, generateImage } from './utils/langchain';
 import { useState } from 'react';
 
 type FieldType = {
@@ -14,13 +14,12 @@ function App() {
 
   const onTextFinish = async (values: FieldType) => {
     const data = await generate(values.text!);
-    // setText(data);
+    setText(data);
   };
 
   const onImgFinish = async (values: FieldType) => {
-    const data = await generateImg(values.image!);
-    // console.log(data);
-    // setImage(data);
+    const data = await generateImage(values.image!)
+    setImage(data);
   };
 
   return (

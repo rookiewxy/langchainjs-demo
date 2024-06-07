@@ -50,7 +50,3 @@ HuggingFace是一个开源的自然语言模型仓库，其中有非常多的开
 ## 总结
 `Ollama`适合大模型语言的本地化部署，有一些模型在`Ollama`上并没有开源，就可以使用`HuggingFace`上的模型，`HuggingFace`提供了更广泛的LLM平台， 使用`HuggingFace`的弊端就是考虑网络情况
 
-## BI扩展
-1.在编辑页面，添加AI生成按钮，弹出一个选项框，其中有文本和图片两个选项，点击生成按钮，可预览生成的内容，在点击导入，就可导入在大屏当中
-![2dca64c7-3a9e-4831-ac79-1972d47084a2](https://github.com/rookiewxy/langchainjs-demo/assets/65204427/878a6632-246e-41d8-95f0-b4f5128c9ac8)
-

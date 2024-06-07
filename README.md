@@ -8,9 +8,7 @@
 
 
 ## 案例介绍
-- 案例地址：http://192.168.0.57:5173/
 - 功能描述：文本和图片生成
-- 代码仓库：https://github.com/rookiewxy/langchainjs-demo
 - 案例截图:
 
 ![fbe648ad-618d-4586-a19b-22c67ec5d806](https://github.com/rookiewxy/langchainjs-demo/assets/65204427/382c0845-181e-4c24-8a6a-ff670abaa7dd)

@@ -34,7 +34,7 @@ langchainjs是基于langchain（python版）开发的，功能可能还没有pyt
 代码实现，可以看仓库代码
 
 ## HuggingFace
-HuggingFace是一个开源的自然语言模型仓库，其中有非常多的开源模型，他也提供了开发者接口，可以单独安装他的开发包进行对接，不过langchainjs已经对它进行了集成，所以直接调hf模块就可以，例如我想实现一个text2image的功能，可以按一下步骤来实现
+HuggingFace是一个开源的自然语言模型仓库，其中有非常多的开源模型，他也提供了开发者接口，可以单独安装他的开发包进行对接，不过langchainjs已经对它进行了集成，所以直接调hf模块就可以，例如我想实现一个text2image的功能，可以按以下步骤来实现
 
 - 第一步：申请`apikey`![d4799d11-5751-4ba2-b3e5-6576cf0f17ca](https://github.com/rookiewxy/langchainjs-demo/assets/65204427/14ff34f8-2bd3-4913-b8df-7c6b30c72142)
 - 第二步：复制模型的id![b35f8218-6c5b-496e-8ebe-7cb7c345da9a](https://github.com/rookiewxy/langchainjs-demo/assets/65204427/c478122b-0762-4eef-9a11-7bbcfdcc2d71)
@@ -46,5 +46,5 @@ HuggingFace是一个开源的自然语言模型仓库，其中有非常多的开
 
 
 ## 总结
-`Ollama`适合大模型语言的本地化部署，有一些模型在`Ollama`上并没有开源，就可以使用`HuggingFace`上的模型，`HuggingFace`提供了更广泛的LLM平台， 使用`HuggingFace`的弊端就是考虑网络情况
+`Ollama`适合LLM的本地化部署，有一些模型在`Ollama`上并没有开源，就可以使用`HuggingFace`上的模型，`HuggingFace`提供了更广泛的LLM平台， 使用`HuggingFace`的弊端就是考虑网络情况
 

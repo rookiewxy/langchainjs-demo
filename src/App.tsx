@@ -1,4 +1,4 @@
-import { Button, Form, Input } from 'antd'
+import { Button, Form, Input, message } from 'antd'
 import './App.css'
 import { generate, generateImage } from './utils/langchain';
 import { useState } from 'react';
@@ -11,15 +11,24 @@ type FieldType = {
 function App() {
   const [text, setText] = useState('');
   const [image, setImage] = useState('');
+  const [textL, setTextL] = useState(false)
+  const [imgL, setImgL] = useState(false)
 
   const onTextFinish = async (values: FieldType) => {
+    setTextL(true)
     const data = await generate(values.text!);
     setText(data);
+    setTextL(false)
   };
 
   const onImgFinish = async (values: FieldType) => {
-    const data = await generateImage(values.image!)
-    setImage(data);
+    setImgL(true)
+    const data = await generateImage(values.image!).catch((err) => {
+      message.error(err)
+      setImgL(false)
+    })
+    data && setImage(data);
+    setImgL(false)
   };
 
   return (
@@ -37,16 +46,14 @@ function App() {
             <Input.TextArea />
           </Form.Item>
           <Form.Item wrapperCol={{ offset: 6, span: 16 }}>
-            <Button type="primary" htmlType="submit">
+            <Button type="primary" htmlType="submit" loading={textL}>
               生成
             </Button>
           </Form.Item>
-          <Form.Item>
-            <div className="text-box">
-              {text}
-            </div>
-          </Form.Item>
         </Form>
+        <div className="text-box">
+          {text}
+        </div>
       </div>
       <div className='m-l'>
         <Form variant="filled"
@@ -59,12 +66,14 @@ function App() {
             <Input.TextArea />
           </Form.Item>
           <Form.Item wrapperCol={{ offset: 6, span: 16 }}>
-            <Button type="primary" htmlType="submit">
+            <Button type="primary" htmlType="submit" loading={imgL}>
               生成
             </Button>
           </Form.Item>
         </Form>
-        <img src={image} alt="" />
+        <div className="img-box">
+          {image && <img src={image} alt="" />}
+        </div>
       </div>
     </div>
   )
